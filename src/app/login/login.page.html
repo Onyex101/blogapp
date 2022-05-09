@@ -1,0 +1,32 @@
+<ion-content class="page-content">
+  <div id="header">
+    <img src="assets/images/blogger.png" />
+  </div>
+  <ion-text color="dark">
+    <h1>Sign In</h1>
+    <p>Hi there! Nice to see you again.</p>
+  </ion-text>
+
+  <form class="login-form" [formGroup]="loginForm" (submit)="doLogin()">
+    <ion-item class="input-item">
+      <ion-label color="secondary" position="stacked">Username</ion-label>
+      <ion-input type="text" formControlName="username" clearInput="true"></ion-input>
+    </ion-item>
+
+    <ion-item class="input-item">
+      <ion-label color="secondary" position="stacked">Password</ion-label>
+      <ion-input type="password" formControlName="password" clearInput="true"></ion-input>
+    </ion-item>
+
+    <p class="error-message" *ngIf="errorMessage">{{errorMessage}}</p>
+
+    <p class="sign-up">
+      <a [routerLink]="['/register']">Don't have an account?</a>
+    </p>
+    <p class="skip-login">
+      <a [routerLink]="['/posts']">Skip log in</a>
+    </p>
+
+    <ion-button color="secondary" class="submit-btn" expand="block" [disabled]="!loginForm.valid" type="submit" strong="true">Log In</ion-button>
+  </form>
+</ion-content>
